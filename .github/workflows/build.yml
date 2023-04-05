@@ -74,6 +74,10 @@ jobs:
             xcode-version: '14.2'
       - name: 
         run: |
+            curl -LO https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.14.sdk.tar.xz
+            sudo tar -xf MacOSX10.14.sdk.tar.xz -C "$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs"
+      - name: 
+        run: |
             cd osx
             rake stash_conflicting_paths
             rake
