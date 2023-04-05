@@ -27,13 +27,11 @@ jobs:
             echo $(xcode-select -p)
             echo $(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs
             sudo tar -xf MacOSX10.14.sdk.tar.xz -C "$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs"
-            sudo xcodebuild -license accept
-            sudo xcode-select --reset
       - name: 
         run: |
             cd osx
             rake stash_conflicting_paths
-            rake
+            rake --trace
             rake unstash_conflicting_paths
             ls
         env:
