@@ -2,11 +2,11 @@ name: Linux
 on:
   push:
     branches: [ main, ci ]
-  pull_request:
-    branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 
 jobs:
-  make:
+  make-ubuntu:
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -22,4 +22,36 @@ jobs:
         run: |
             cd linux
             rake image
+            rake
+  make-windows:
+    strategy:
+      matrix:
+        os: [windows-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Set up Ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+            version: 3.1.2
+      - name: 
+        run: |
+            cd windows
+            rake
+  make-osx:
+    strategy:
+      matrix:
+        os: [macos-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Set up Ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+            version: 3.1.2
+      - name: 
+        run: |
+            cd osx
             rake
