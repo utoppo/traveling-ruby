@@ -23,6 +23,7 @@ jobs:
             cd linux
             rake image
             rake
+            ls
   make-windows:
     strategy:
       matrix:
@@ -35,10 +36,16 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
             version: 3.1.2
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+            xcode-version: '14.2'
       - name: 
         run: |
             cd windows
-            rake
+            sh -c 'mkdir -p cache output/3.1.2'
+            sh -c './build-ruby -a x86_64 -r 3.1.2 cache output/3.1.2'
+            sh -c './package -r traveling-ruby-20230504-3.1.2-x86_64-win32.tar.gz output/3.1.2'
+            sh -c 'ls'
   make-osx:
     strategy:
       matrix:
@@ -55,3 +62,4 @@ jobs:
         run: |
             cd osx
             rake
+            ls
