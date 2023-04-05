@@ -21,7 +21,6 @@ jobs:
       - name: 
         run: |
             cd linux
-            rake image
             rake
             ls
   make-windows:
