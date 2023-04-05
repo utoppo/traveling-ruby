@@ -27,12 +27,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: traveling-ruby-20230504-3.1.2-linux-arm64.tar.gz
-          path: traveling-ruby-20230504-3.1.2-linux-arm64.tar.gz
+          path: linux/traveling-ruby-20230504-3.1.2-linux-arm64.tar.gz
       - name: 'Upload Artifact - linux x86_64'
         uses: actions/upload-artifact@v3
         with:
           name: traveling-ruby-20230504-3.1.2-linux-x86_64.tar.gz
-          path: traveling-ruby-20230504-3.1.2-linux-x86_64.tar.gz
+          path: linux/traveling-ruby-20230504-3.1.2-linux-x86_64.tar.gz
   make-windows:
     strategy:
       matrix:
@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: traveling-ruby-20230504-3.1.2-x86_64-win32.tar.gz
-          path: traveling-ruby-20230504-3.1.2-x86_64-win32.tar.gz
+          path: windows/traveling-ruby-20230504-3.1.2-x86_64-win32.tar.gz
   make-osx:
     strategy:
       matrix:
@@ -83,9 +83,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
-          path: traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
+          path: osx/traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
       - name: 'Upload Artifact- osx x86_64'
         uses: actions/upload-artifact@v3
         with:
           name: traveling-ruby-20230504-3.1.2-osx-x86_64.tar.gz
-          path: traveling-ruby-20230504-3.1.2-osx-x86_64.tar.gz
+          path: osx/traveling-ruby-20230504-3.1.2-osx-x86_64.tar.gz
