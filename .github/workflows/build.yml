@@ -76,6 +76,8 @@ jobs:
       - name: 
         run: |
             curl -LO https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.14.sdk.tar.xz
+            echo $(xcode-select -p)
+            echo $(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs
             sudo tar -xf MacOSX10.14.sdk.tar.xz -C "$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs"
       - name: 
         run: |
