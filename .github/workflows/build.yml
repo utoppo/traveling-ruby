@@ -23,12 +23,12 @@ jobs:
             cd linux
             rake
             ls
-      - name: 'Upload Artifact- linux arm64'
+      - name: 'Upload Artifact - linux arm64'
         uses: actions/upload-artifact@v3
         with:
           name: traveling-ruby-20230504-3.1.2-linux-arm64.tar.gz
           path: traveling-ruby-20230504-3.1.2-linux-arm64.tar.gz
-      - name: 'Upload Artifact- linux x86_64'
+      - name: 'Upload Artifact - linux x86_64'
         uses: actions/upload-artifact@v3
         with:
           name: traveling-ruby-20230504-3.1.2-linux-x86_64.tar.gz
@@ -71,7 +71,7 @@ jobs:
             version: 3.1.2
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-            xcode-version: '10.14'
+            xcode-version: '14.2'
       - name: 
         run: |
             cd osx
