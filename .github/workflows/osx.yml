@@ -28,7 +28,6 @@ jobs:
             echo $(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs
             sudo tar -xf MacOSX10.14.sdk.tar.xz -C "$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs"
             sudo xcodebuild -license accept
-            xcode-select --install
             sudo xcode-select --reset
       - name: 
         run: |
