@@ -15,6 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
+          brew install ruby@2.6
           ruby --version
           brew install rbenv
           rbenv versions
