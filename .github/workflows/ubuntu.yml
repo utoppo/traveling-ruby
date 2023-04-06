@@ -61,4 +61,3 @@ jobs:
         with:
           name: traveling-ruby-20230504-3.1.2-linux-arm64.tar.gz
           path: linux/traveling-ruby-20230504-3.1.2-linux-arm64.tar.gz
-se
