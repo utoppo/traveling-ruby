@@ -1,4 +1,4 @@
-name: Linux - aarch64 - build from dockerhub builder
+name: Linux - aarch64 - image builder
 on:
   push:
     branches: [ main, ci ]
