@@ -19,8 +19,8 @@ jobs:
           brew install rbenv
           rbenv versions
           ruby --version
-          rbenv local system
-          ruby --version
+          rbenv install --list
+          ls /Library/Ruby/Gems/2.6.0/gems/
           gem install bundler:2.3.17
       - name: "Set up Ruby"
         uses: ruby/setup-ruby@v1
