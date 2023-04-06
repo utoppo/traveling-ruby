@@ -30,7 +30,6 @@ jobs:
       #       sudo tar -xf MacOSX10.14.sdk.tar.xz -C "$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs"
       - name: build x86
         run: |
-            gem install bundler:3.1.2
             cd osx
             rake stash_conflicting_paths
             rake --trace
