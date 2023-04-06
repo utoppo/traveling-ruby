@@ -16,13 +16,13 @@ jobs:
       - uses: actions/checkout@v3
       - name: setup self-hosted deps
         run: |
-          sudo apt install -y snapd
-          sudo snap install docker
-          sudo addgroup --system docker
-          sudo adduser ubuntu docker
-          newgrp docker
-          sudo snap disable docker
-          sudo snap enable docker
+          # sudo apt install -y snapd
+          # sudo snap install docker
+          # sudo addgroup --system docker
+          # sudo adduser ubuntu docker
+          # newgrp docker
+          # sudo snap disable docker
+          # sudo snap enable docker
           sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
           curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
           eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
