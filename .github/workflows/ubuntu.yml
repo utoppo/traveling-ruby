@@ -50,7 +50,7 @@ jobs:
           # sudo apt install snapd
           # sudo snap install docker
           # sudo addgroup --system docker
-          sudo adduser $USER docker
+          sudo adduser ubuntu docker
           newgrp docker
           sudo snap disable docker
           sudo snap enable docker
