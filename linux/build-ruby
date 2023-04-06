@@ -145,7 +145,7 @@ else
 	TTY_ARGS=(-ti)
 fi
 
-exec sudo docker run \
+exec docker run \
 	"${TTY_ARGS[@]}" \
 	--rm \
 	--init \
