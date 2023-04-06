@@ -63,7 +63,7 @@ jobs:
         run: |
             eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
             cd linux
-            sudo -u ubuntu /root/.rbenv/shims/rake
+            rake
             ls
         env:
           ARCHITECTURES: "arm64"
