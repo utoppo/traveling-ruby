@@ -25,7 +25,7 @@ jobs:
             rake
             ls
         env:
-          ARCHITECTURES: "['x86_64']"
+          ARCHITECTURES: "x86_64"
       # - name: 'Upload Artifact - linux arm64'
       #   uses: actions/upload-artifact@v3
       #   with:
