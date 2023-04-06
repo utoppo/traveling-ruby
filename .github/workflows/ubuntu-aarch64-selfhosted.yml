@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: setup self-hosted deps
         run: |
-          sudo apt install snapd
+          sudo apt install -y snapd
           sudo snap install docker
           sudo addgroup --system docker
           sudo adduser ubuntu docker
