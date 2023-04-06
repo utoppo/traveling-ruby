@@ -43,7 +43,7 @@ ARCHITECTURES.each do |arch|
   task "image:#{arch}" do
     sh "sudo docker build --pull" \
       " -t you54f/traveling-ruby-builder-#{arch}:#{IMAGE_VERSION}" \
-      " -f image/Dockerfile-#{arch} image"
+      " -f image/Dockerfile-#{arch} ."
   end
 
   desc "Open a shell for testing building the #{arch} Docker image"
