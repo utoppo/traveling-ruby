@@ -1,7 +1,7 @@
 name: MacOS arm64
 on:
   push:
-    branches: [ main ]
+    branches: [ main, ci ]
 #   pull_request:
 #     branches: [ main ]
 
@@ -14,23 +14,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      - run: gem install bundler:2.3.17
-      - name: "Set up Ruby"
-        uses: ruby/setup-ruby@v1
-        with:
-            ruby-version: 3.1.2
-      # - uses: maxim-lobanov/setup-xcode@v1
-      #   with:
-      #       xcode-version: '14.2'
-      # - name: 
-      #   run: |
-      #       curl -LO https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.14.sdk.tar.xz
-      #       echo $(xcode-select -p)
-      #       echo $(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs
-      #       sudo tar -xf MacOSX10.14.sdk.tar.xz -C "$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs"
-      - name: build x86
+      - name: build arm64
         run: |
-            gem install bundler:2.3.17
             cd osx
             rake stash_conflicting_paths
             rake --trace
