@@ -17,7 +17,7 @@ jobs:
       - run: |
             # rbenv local system
             # sudo gem install bundler:2.3.17
-            rbenv global 3.0.2
+            rbenv global 3.0.5
       - name: build arm64
         run: |
             cd osx
