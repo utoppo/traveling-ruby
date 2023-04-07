@@ -42,7 +42,7 @@
 #     - ls
 
 arm_container:
-  image: ubuntu:22:04
+  image: ruby:latest
   cpu: 4
   memory: 12G
   
