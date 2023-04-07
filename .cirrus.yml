@@ -41,34 +41,34 @@
 #     - arch -x86_64 rake unstash_conflicting_paths
 #     - ls
 
-arm_container:
+# arm_container:
+#   image: ruby:3.1-slim-buster
+#   cpu: 4
+#   memory: 12G
+  
+# linux-aarch64_task:
+#   script:
+#     - cd linux
+#     - ARCHITECTURES="arm64" rake
+#     - ls
+
+
+container:
   image: ruby:3.1-slim-buster
   cpu: 4
   memory: 12G
   
-linux-aarch64_task:
+
+linux-x86_64_task_task:
   script:
+    # - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+    # - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+    # - eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
+    # - rbenv install 3.1.2
+    # - rbenv global 3.1.2
     - cd linux
-    - ARCHITECTURES="arm64" rake
+    - ARCHITECTURES="x86_64" rake
     - ls
-
-
-# container:
-#   image: ruby:latest
-#   cpu: 4
-#   memory: 12G
-  
-
-# linux-x86_64_task_task:
-#   script:
-#     - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
-#     - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-#     - eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
-#     - rbenv install 3.1.2
-#     - rbenv global 3.1.2
-#     - cd linux
-#     - ARCHITECTURES="x86_64" rake
-#     - ls
 
 # windows:
 #   script:
