@@ -1,12 +1,12 @@
 name: MacOS x86_64 - self hosted
 on:
   push:
-    branches: [ main, ci ]
+    branches: [ main ]
 #   pull_request:
 #     branches: [ main ]
 
 jobs:
-  make-osx-arm64:
+  make-osx-x86_64:
     strategy:
       matrix:
         os: [self-hosted]
