@@ -17,7 +17,7 @@ jobs:
       - run: |
             brew install rbenv
             rbenv local system
-            gem install bundler:2.3.17
+            sudo gem install bundler:2.3.17
             rbenv install 3.1.2
             rbenv global 3.1.2
       - name: build arm64
