@@ -29,19 +29,18 @@ task:
     - uname -m
     - softwareupdate --install-rosetta --agree-to-license
     - arch -x86_64 uname -m
-    # - rm .ruby-version
-    # - ruby --version
-    # - rbenv install --list
-    # - rbenv versions
-    # - rbenv local system
-    # - sudo gem install bundler:2.3.17
-    # - rbenv local 3.0.5
-    # - softwareupdate --install-rosetta --agree-to-license
-    # - cd osx
-    # - rake stash_conflicting_paths
-    # - rake --trace
-    # - rake unstash_conflicting_paths
-    # - ls
+    - rm .ruby-version
+    - ruby --version
+    - rbenv install --list
+    - rbenv versions
+    - rbenv local system
+    - arch -x86_64 sudo gem install bundler:2.3.17
+    - rbenv local 3.0.5
+    - cd osx
+    - arch -x86_64 rake stash_conflicting_paths
+    - arch -x86_64 rake --trace
+    - arch -x86_64 rake unstash_conflicting_paths
+    - ls
 
 # linux-aarch64:
 #   script:
