@@ -349,9 +349,15 @@ if [[ "$GEMFILE" != "" ]]; then
 		if [[ -e "$GEMFILE.lock" ]]; then
 			run cp "$GEMFILE.lock" ./
 		fi
+		echo "gem install bundler:$BUNDLER_VERSION"
+		gem install bundler:$BUNDLER_VERSION
+		echo "run bundle config --local force_ruby_platform true"
 		run bundle config --local force_ruby_platform true
+		echo "run "$TMPBUILDROOT/bin/bundle" config set --local system true"
 		run "$TMPBUILDROOT/bin/bundle" config set --local system true
+		echo "run "$TMPBUILDROOT/bin/bundle" install --retry 3 --jobs $CONCURRENCY"
 		run "$TMPBUILDROOT/bin/bundle" install --retry 3 --jobs $CONCURRENCY
+		echo "run "$TMPBUILDROOT/bin/bundle" package"
 		run "$TMPBUILDROOT/bin/bundle" package
 
 		# Cache gems.
