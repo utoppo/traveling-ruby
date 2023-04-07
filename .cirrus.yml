@@ -28,8 +28,7 @@ task:
     - echo "Hello World from macOS!"
     - uname -m
     - softwareupdate --install-rosetta --agree-to-license
-    - env /usr/bin/arch -x86_64 /bin/zsh
-    - uname -m
+    - arch -x86_64 uname -m
     # - rm .ruby-version
     # - ruby --version
     # - rbenv install --list
