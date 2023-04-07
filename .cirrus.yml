@@ -1,20 +1,74 @@
+# macos_instance:
+#   image: ghcr.io/cirruslabs/macos-ventura-base:latest
+
+# macosx-arm64:
+#   script:
+#     - echo "Hello World from macOS!"
+#     - uname -m
+#     - rm .ruby-version
+#     - ruby --version
+#     - rbenv install --list
+#     - rbenv versions
+#     - rbenv local system
+#     - sudo gem install bundler:2.3.17
+#     - rbenv local 3.0.5
+#     - softwareupdate --install-rosetta --agree-to-license
+#     - cd osx
+#     - rake stash_conflicting_paths
+#     - rake --trace
+#     - rake unstash_conflicting_paths
+#     - ls
+
 macos_instance:
   image: ghcr.io/cirruslabs/macos-ventura-base:latest
 
-task:
+macosx-x86_64:
   script:
     - echo "Hello World from macOS!"
     - uname -m
-    - rm .ruby-version
-    - ruby --version
-    - rbenv install --list
-    - rbenv versions
-    - rbenv local system
-    - sudo gem install bundler:2.3.17
-    - rbenv local 3.0.5
     - softwareupdate --install-rosetta --agree-to-license
-    - cd osx
-    - rake stash_conflicting_paths
-    - rake --trace
-    - rake unstash_conflicting_paths
-    - ls
+    - env /usr/bin/arch -x86_64 /bin/zsh
+    - uname -m
+    # - rm .ruby-version
+    # - ruby --version
+    # - rbenv install --list
+    # - rbenv versions
+    # - rbenv local system
+    # - sudo gem install bundler:2.3.17
+    # - rbenv local 3.0.5
+    # - softwareupdate --install-rosetta --agree-to-license
+    # - cd osx
+    # - rake stash_conflicting_paths
+    # - rake --trace
+    # - rake unstash_conflicting_paths
+    # - ls
+
+# linux-aarch64:
+#   script:
+#     - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+#     - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+#     - eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
+#     - rbenv install 3.1.2
+#     - rbenv global 3.1.2
+#     - cd linux
+#     - ARCHITECTURES="arm64" rake
+#     - ls
+
+# linux-x86_64:
+#   script:
+#     - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+#     - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+#     - eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
+#     - rbenv install 3.1.2
+#     - rbenv global 3.1.2
+#     - cd linux
+#     - ARCHITECTURES="x86_64" rake
+#     - ls
+
+# windows:
+#   script:
+#     - cd windows
+#     - sh -c 'mkdir -p cache output/3.1.2'
+#     - sh -c './build-ruby -a x86_64 -r 3.1.2 cache output/3.1.2'
+#     - sh -c './package -r traveling-ruby-20230504-3.1.2-x86_64-win32.tar.gz output/3.1.2'
+#     - sh -c 'ls'
