@@ -70,12 +70,12 @@
 #     - ls
 
 # linux-x86_64_task:
-docker_builder:
-  script:
-    - cd linux
-    - ARCHITECTURES="x86_64" rake image
-    - ARCHITECTURES="x86_64" rake
-    - ls
+# docker_builder:
+#   script:
+#     - cd linux
+#     - ARCHITECTURES="x86_64" rake image
+#     - ARCHITECTURES="x86_64" rake
+#     - ls
 
 
 # windows:
@@ -85,3 +85,52 @@ docker_builder:
 #     - sh -c './build-ruby -a x86_64 -r 3.1.2 cache output/3.1.2'
 #     - sh -c './package -r traveling-ruby-20230504-3.1.2-x86_64-win32.tar.gz output/3.1.2'
 #     - sh -c 'ls'
+
+
+
+
+linux-arm64-task:
+  compute_engine_instance:
+    image_project: cirrus-images
+    image: family/docker-builder-arm64
+    architecture: arm64
+    platform: linux
+    cpu: 4
+    memory: 16G
+  script:
+    - cd linux
+    - ARCHITECTURES="arm64" rake image
+    - ARCHITECTURES="arm64" rake
+    - ls
+linux-x86_64_task:
+  compute_engine_instance:
+    image_project: cirrus-images
+    image: family/docker-builder
+    platform: linux
+    cpu: 4
+    memory: 16G
+  script:
+    - cd linux
+    - ARCHITECTURES="x86_64" rake image
+    - ARCHITECTURES="x86_64" rake
+    - ls
+
+
+# macos_instance:
+#   image: ghcr.io/cirruslabs/macos-ventura-base:latest
+
+# macosx-task:
+#   script:
+#     - rm .ruby-version
+#     - rbenv local system
+#     - sudo gem install bundler:2.3.17
+#     - rbenv local 3.0.5
+#     - softwareupdate --install-rosetta --agree-to-license
+#     - cd osx
+#     - rake stash_conflicting_paths
+#     - rake --trace
+#     - ls
+#     - rm -rf runtime output traveling-ruby-gems-20230504-3.1.2-osx-x86_64
+#     - arch -x86_64 rake --trace
+#     - rake unstash_conflicting_paths
+#     - ls
