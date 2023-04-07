@@ -23,7 +23,7 @@ macos_instance:
   image: ghcr.io/cirruslabs/macos-ventura-base:latest
 
 # macosx-x86_64:
-tasks:
+task:
   script:
     - echo "Hello World from macOS!"
     - uname -m
