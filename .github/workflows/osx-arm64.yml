@@ -27,7 +27,7 @@ jobs:
             rake unstash_conflicting_paths
             ls
         env:
-          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+          DEVELOPER_DIR: /Library/Developer/CommandLineTools
           CC: /Users/admin/foo/actions-runner/_work/traveling-ruby/traveling-ruby/osx/internal/bin/cc
       - name: 'Upload Artifact- osx arm64'
         uses: actions/upload-artifact@v3
