@@ -18,6 +18,11 @@ jobs:
     steps:
       - checkout
       - run: |
+            rm .ruby-version
+            rbenv local system
+            sudo gem install bundler:2.3.17
+            rbenv install 3.1.2
+            rbenv global 3.1.2
             cd osx
             uname -m
             rake stash_conflicting_paths
