@@ -1,7 +1,7 @@
 # macos_instance:
 #   image: ghcr.io/cirruslabs/macos-ventura-base:latest
 
-# macosx-arm64:
+# macosx-arm64_task:
 #   script:
 #     - echo "Hello World from macOS!"
 #     - uname -m
@@ -19,41 +19,52 @@
 #     - rake unstash_conflicting_paths
 #     - ls
 
-macos_instance:
-  image: ghcr.io/cirruslabs/macos-ventura-base:latest
+# macos_instance:
+#   image: ghcr.io/cirruslabs/macos-ventura-base:latest
 
-# macosx-x86_64:
-task:
-  script:
-    - echo "Hello World from macOS!"
-    - uname -m
-    - softwareupdate --install-rosetta --agree-to-license
-    - arch -x86_64 uname -m
-    - rm .ruby-version
-    - ruby --version
-    - rbenv install --list
-    - rbenv versions
-    - rbenv local system
-    - arch -x86_64 sudo gem install bundler:2.3.17
-    - rbenv local 3.0.5
-    - cd osx
-    - arch -x86_64 rake stash_conflicting_paths
-    - arch -x86_64 rake --trace
-    - arch -x86_64 rake unstash_conflicting_paths
-    - ls
-
-# linux-aarch64:
+# macosx-x86_64_task:
 #   script:
-#     - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
-#     - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-#     - eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
-#     - rbenv install 3.1.2
-#     - rbenv global 3.1.2
-#     - cd linux
-#     - ARCHITECTURES="arm64" rake
+#     - echo "Hello World from macOS!"
+#     - uname -m
+#     - softwareupdate --install-rosetta --agree-to-license
+#     - arch -x86_64 uname -m
+#     - rm .ruby-version
+#     - ruby --version
+#     - rbenv install --list
+#     - rbenv versions
+#     - rbenv local system
+#     - arch -x86_64 sudo gem install bundler:2.3.17
+#     - rbenv local 3.0.5
+#     - cd osx
+#     - arch -x86_64 rake stash_conflicting_paths
+#     - arch -x86_64 rake --trace
+#     - arch -x86_64 rake unstash_conflicting_paths
 #     - ls
 
-# linux-x86_64:
+arm_container:
+  image: ubuntu:22:04
+  cpu: 4
+  memory: 12G
+  
+linux-aarch64_task:
+  script:
+    - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+    - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+    - eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
+    - rbenv install 3.1.2
+    - rbenv global 3.1.2
+    - cd linux
+    - ARCHITECTURES="arm64" rake
+    - ls
+
+
+# container:
+#   image: ubuntu:22:04
+#   cpu: 4
+#   memory: 12G
+  
+
+# linux-x86_64_task_task:
 #   script:
 #     - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
 #     - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
