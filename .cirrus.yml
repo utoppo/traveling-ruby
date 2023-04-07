@@ -48,7 +48,7 @@ arm_container:
   
 linux-aarch64_task:
   script:
-    - sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+    - apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
     - curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
     - eval "$(/home/ubuntu/.rbenv/bin/rbenv init - bash)"
     - rbenv install 3.1.2
@@ -59,7 +59,7 @@ linux-aarch64_task:
 
 
 # container:
-#   image: ubuntu:22:04
+#   image: ruby:latest
 #   cpu: 4
 #   memory: 12G
   
