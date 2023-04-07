@@ -60,20 +60,22 @@
   
 
 # linux-arm64_task:
-docker_builder:
-  env:
-    CIRRUS_ARCH: arm64
-  script:
-    - cd linux
-    - ARCHITECTURES="arm64" rake
-    - ls
-
-# # linux-x86_64_task:
 # docker_builder:
+#   env:
+#     CIRRUS_ARCH: arm64
 #   script:
 #     - cd linux
-#     - ARCHITECTURES="x86_64" rake
+#     - ARCHITECTURES="arm64" rake image
+#     - ARCHITECTURES="arm64" rake
 #     - ls
+
+# linux-x86_64_task:
+docker_builder:
+  script:
+    - cd linux
+    - ARCHITECTURES="x86_64" rake image
+    - ARCHITECTURES="x86_64" rake
+    - ls
 
 
 # windows:
