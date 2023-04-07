@@ -28,6 +28,7 @@ jobs:
             ls
         env:
           DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+          CC: /Users/admin/foo/actions-runner/_work/traveling-ruby/traveling-ruby/osx/internal/bin/cc
       - name: 'Upload Artifact- osx arm64'
         uses: actions/upload-artifact@v3
         with:
