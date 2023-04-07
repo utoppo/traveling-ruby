@@ -14,6 +14,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
+      - run: |
+            brew install rbenv
+            rbenv install 3.1.2
+            rbenv global 3.1.2
       - name: build arm64
         run: |
             cd osx
