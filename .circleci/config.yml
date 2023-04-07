@@ -7,7 +7,7 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build-mac:
+  build-mac-x86_64:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     macos:
@@ -23,16 +23,16 @@ jobs:
             rake stash_conflicting_paths
             DEVELOPER_DIR=/Library/Developer/CommandLineTools rake --trace
             ls
-      - store_artifacts:
-          path: osx/traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
-          destination: traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
-      - run: |
-            cd osx
-            softwareupdate --install-rosetta --agree-to-license
-            arch -x86_64 uname -m
-            rm -rf runtime output traveling-ruby-gems-20230504-3.1.2-osx-x86_64
-            arch -x86_64 DEVELOPER_DIR=/Library/Developer/CommandLineTools rake --trace
-            rake unstash_conflicting_paths
+      # - store_artifacts:
+      #     path: osx/traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
+      #     destination: traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
+      # - run: |
+      #       cd osx
+      #       softwareupdate --install-rosetta --agree-to-license
+      #       arch -x86_64 uname -m
+      #       rm -rf runtime output traveling-ruby-gems-20230504-3.1.2-osx-x86_64
+      #       arch -x86_64 DEVELOPER_DIR=/Library/Developer/CommandLineTools rake --trace
+      #       rake unstash_conflicting_paths
       - store_artifacts:
           path: osx/traveling-ruby-20230504-3.1.2-osx-x86_64.tar.gz
           destination: traveling-ruby-20230504-3.1.2-osx-x86_64.tar.gz
@@ -71,7 +71,7 @@ jobs:
 workflows:
   x-plat:
     jobs:
-      - build-mac
+      - build-mac-x86_64
       # - build-linux-arm64
       - build-linux-x86_64
       - build-windows
