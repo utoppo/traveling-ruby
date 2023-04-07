@@ -21,10 +21,8 @@ jobs:
             cd osx
             uname -m
             rake stash_conflicting_paths
-            rake --trace
+            DEVELOPER_DIR=/Library/Developer/CommandLineTools rake --trace
             ls
-            rm -rf runtime output traveling-ruby-gems-20230504-3.1.2-osx-x86_64
-            arch -x86_64 rake --trace
       - store_artifacts:
           path: osx/traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
           destination: traveling-ruby-20230504-3.1.2-osx-arm64.tar.gz
@@ -33,7 +31,8 @@ jobs:
             softwareupdate --install-rosetta --agree-to-license
             arch -x86_64 uname -m
             rm -rf runtime output traveling-ruby-gems-20230504-3.1.2-osx-x86_64
-            arch -x86_64 rake --trace
+            arch -x86_64 DEVELOPER_DIR=/Library/Developer/CommandLineTools rake --trace
+            rake unstash_conflicting_paths
       - store_artifacts:
           path: osx/traveling-ruby-20230504-3.1.2-osx-x86_64.tar.gz
           destination: traveling-ruby-20230504-3.1.2-osx-x86_64.tar.gz
