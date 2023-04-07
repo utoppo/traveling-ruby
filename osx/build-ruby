@@ -331,10 +331,10 @@ if [[ "$GEMFILE" != "" ]]; then
 
 	# Install Bundler, either from cache or directly.
 	if [[ -e "$RUNTIME_DIR/vendor/cache/bundler-$BUNDLER_VERSION.gem" ]]; then
-		echo install Bundler from cache"
+		echo "install Bundler from cache"
 		run "$TMPBUILDROOT/bin/gem" install "$RUNTIME_DIR/vendor/cache/bundler-$BUNDLER_VERSION.gem" --no-document
 	else
-		echo install Bundler directly"
+		echo "install Bundler directly"
 		run "$TMPBUILDROOT/bin/gem" install bundler -v $BUNDLER_VERSION --no-document
 		run mkdir -p "$RUNTIME_DIR/vendor/cache"
 		run cp "$TMPBUILDROOT"/lib/ruby/gems/$RUBY_COMPAT_VERSION/cache/bundler-$BUNDLER_VERSION.gem \
