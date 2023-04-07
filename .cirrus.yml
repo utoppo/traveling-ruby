@@ -5,6 +5,7 @@ task:
   script:
     - echo "Hello World from macOS!"
     - uname -m
+    - rm .ruby-version
     - ruby --version
     - rbenv install --list
     - rbenv versions
@@ -12,7 +13,6 @@ task:
     - sudo gem install bundler:2.3.17
     - rbenv local 3.0.5
     - softwareupdate --install-rosetta --agree-to-license
-    - rm .ruby-version
     - cd osx
     - rake stash_conflicting_paths
     - rake --trace
