@@ -114,23 +114,20 @@ linux-x86_64_task:
     - ARCHITECTURES="x86_64" rake image
     - ARCHITECTURES="x86_64" rake
     - ls
-
-
-# macos_instance:
-#   image: ghcr.io/cirruslabs/macos-ventura-base:latest
-
-# macosx-task:
-#   script:
-#     - rm .ruby-version
-#     - rbenv local system
-#     - sudo gem install bundler:2.3.17
-#     - rbenv local 3.0.5
-#     - softwareupdate --install-rosetta --agree-to-license
-#     - cd osx
-#     - rake stash_conflicting_paths
-#     - rake --trace
-#     - ls
-#     - rm -rf runtime output traveling-ruby-gems-20230504-3.1.2-osx-x86_64
-#     - arch -x86_64 rake --trace
-#     - rake unstash_conflicting_paths
-#     - ls
+macosx-task:
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-ventura-base:latest
+  script:
+    - rm .ruby-version
+    - rbenv local system
+    - sudo gem install bundler:2.3.17
+    - rbenv local 3.0.5
+    - softwareupdate --install-rosetta --agree-to-license
+    - cd osx
+    - rake stash_conflicting_paths
+    - rake --trace
+    - ls
+    - rm -rf runtime output traveling-ruby-gems-20230504-3.1.2-osx-x86_64
+    - arch -x86_64 rake --trace
+    - rake unstash_conflicting_paths
+    - ls
