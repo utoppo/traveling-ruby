@@ -2,7 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     ffi (1.15.5)
-    json (2.6.2)
+    json (2.6.3)
+    rexml (3.2.5)
     yajl-ruby (1.4.3)
 
 PLATFORMS
@@ -11,7 +12,8 @@ PLATFORMS
 DEPENDENCIES
   ffi
   json
+  rexml
   yajl-ruby
 
 BUNDLED WITH
-   2.3.14
+   2.4.10
