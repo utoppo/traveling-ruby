@@ -30,13 +30,18 @@ macosx-arm64-task:
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
   script:
+    - find osx/ -type f -exec chmod +x {} \;
+    - chmod +x shared/package
+    - mkdir -p "build"
     - rbenv local system
     - sudo gem install bundler:2.3.17
     - rbenv global 3.2.2
     - cd osx
     - rake stash_conflicting_paths
     - rake --trace
-    - ls
+    - cp -R traveling-ruby* ../build
+  binary_artifacts:
+    path: "build/*"
 macosx-x86_64_task: 
   timeout_in: 90m
   macos_instance:
